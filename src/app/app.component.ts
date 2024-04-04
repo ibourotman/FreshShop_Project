@@ -9,6 +9,9 @@ import { DataServiceService } from './shared/data-service.service';
 export class AppComponent implements OnInit{
   title = 'PROJECT';
   constructor(private datasrv: DataServiceService) {
+    
+   }
+   ngOnInit(): void {
     this.datasrv.getOrdersForUser(4).subscribe(
       (data) => {
         const totalOrder = data.items.length
@@ -18,9 +21,6 @@ export class AppComponent implements OnInit{
         console.error('Error fetching products:', error);
       }
     );
-   }
-   ngOnInit(): void {
-    
    }
 
 }

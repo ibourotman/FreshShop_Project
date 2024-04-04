@@ -46,5 +46,7 @@ getProductById(productId: number): Observable<Product> {
 }
 
 
-
+getTotalOrder(): Observable<number> {
+  return this.totalOrder$;
+}
 }
