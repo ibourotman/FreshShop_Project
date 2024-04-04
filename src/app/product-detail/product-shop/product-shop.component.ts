@@ -20,14 +20,7 @@ export class ProductShopComponent {
   
   
   constructor( private route: ActivatedRoute,private dataService:DataServiceService,private cartSrv:CartServiceService){
-  // this.dataService.getProductById(1).subscribe(
-  //   (product) => {
-  //     console.log(product); // Log the product data here
-  //   },
-  //   (error) => {
-  //     console.error('Error fetching product:', error);
-  //   }
-  // );
+
 }
 ngOnInit(): void {
   this.route.params.subscribe(params => {
@@ -45,14 +38,23 @@ ngOnInit(): void {
 }
 addToCart(product: Product, quantity: number) {
   this.dataService.addProductToOrder(4, product.id, quantity).subscribe(
-      (orderItem) => {
-          // On successful addition, add the item to the cart service
-          this.cartSrv.addItem(orderItem);
-          console.log("Product added to cart:", orderItem);
-      },
-      (error) => {
-          console.error("Error adding product to cart:", error);
-      }
+    (orderItem) => {     
+      // On successful addition, add the item to the cart service
+      this.cartSrv.addItem(orderItem);
+      this.dataService.getOrdersForUser(4).subscribe(
+        (data) => {
+          const totalOrder = data.items.length
+          this.dataService.updateTotalOrder(totalOrder);
+        },
+        (error) => {
+          console.error('Error fetching products:', error);
+        }
+      ); 
+      console.log("Product added to cart:", orderItem);
+    },
+    (error) => {
+      console.error("Error adding product to cart:", error);
+    }
   );
 }
 OnDescription(){

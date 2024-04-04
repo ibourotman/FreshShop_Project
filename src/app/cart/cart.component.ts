@@ -49,6 +49,15 @@ export class CartComponent implements OnInit{
       () => {
         console.log('Order item deleted successfully');
         this.GetOrders();
+        this.datasrv.getOrdersForUser(4).subscribe(
+          (data) => {
+            const totalOrder = data.items.length
+            this.datasrv.updateTotalOrder(totalOrder);
+          },
+          (error) => {
+            console.error('Error fetching products:', error);
+          }
+        ); 
       },
       (error) => {
         console.error('Error deleting order item:', error);

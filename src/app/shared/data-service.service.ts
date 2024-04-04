@@ -9,15 +9,18 @@ import { OrderItem } from './order-item.model';
   providedIn: 'root'
 })
 export class DataServiceService {
-  TotalOrderPro:number = 0;
 
   private apiUrl = 'http://localhost:8000/api/products/';
   private apiUrlo = 'http://localhost:8000/api/orders/';
-
+  private totalOrderSubject = new BehaviorSubject<number>(0);
+  totalOrder$ = this.totalOrderSubject.asObservable();
 
   constructor(private http: HttpClient) {
+    
    }
-
+   updateTotalOrder(newTotal: number) {
+    this.totalOrderSubject.next(newTotal);
+  }
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.apiUrl);
   }
