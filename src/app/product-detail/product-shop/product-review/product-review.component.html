@@ -1,0 +1,20 @@
+<div class="tab-pane" id="nav-mission" role="tabpanel" aria-labelledby="nav-mission-tab">
+    <div class="d-flex" *ngFor="let index of data">
+        <img src="../../../../assets/images/avatar.jpg" class="img-fluid rounded-circle p-3" style="width: 100px; height: 100px;" alt="">
+        <div class="">
+            <p class="mb-2" style="font-size: 14px;">{{data.date}}</p>
+            <div class="d-flex justify-content-between">
+                <h5>{{index.name}}</h5>
+                <div class="d-flex mb-3">
+                    <i class="fa fa-star text-secondary"></i>
+                    <i class="fa fa-star text-secondary"></i>
+                    <i class="fa fa-star text-secondary"></i>
+                    <i class="fa fa-star text-secondary"></i>
+                    <i class="fa fa-star"></i>
+                </div>
+            </div>
+            <p>{{index.message}}</p>
+        </div>
+    </div>
+
+</div>
