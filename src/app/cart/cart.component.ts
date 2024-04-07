@@ -94,7 +94,7 @@ getTotal(){
     this.totalCart = this.totalCart + i.product.price * i.quantity;
   }
   console.log(this.totalCart)
-  return this.totalCart;
+  this.totalCart = parseFloat(this.totalCart.toFixed(2))
 }
 
 }
