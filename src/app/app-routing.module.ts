@@ -5,14 +5,24 @@ import { ProductComponent } from './product/product.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { HeaderComponent } from './home/header/header.component';
 import { CartComponent } from './cart/cart.component';
+import { AppComponent } from './app.component';
+import { ShopComponent } from './shop/shop.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, children: [
-    { path: '', component: ProductComponent } 
-  ]},
+  { 
+    path: '', 
+    component: AppComponent, 
+    children: [
+      { path: '', component: HomeComponent },
+      { path: '', component: ProductComponent, outlet: 'secondary' }
+    ] 
+  },
+  
   {path:'product/:id', component:ProductDetailComponent,
   },
-  {path:'cart', component:CartComponent}
+  {path:'cart', component:CartComponent},
+  {path:'Shop', component:ShopComponent}
+
 ];
 
 @NgModule({

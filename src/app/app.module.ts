@@ -20,6 +20,7 @@ import { FooterComponent } from './footer/footer.component';
 import { CartComponent } from './cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ShopComponent } from './shop/shop.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { FormsModule } from '@angular/forms';
     RelatedProductComponent,
     FooterComponent,
     CartComponent,
+    ShopComponent,
   ],
   imports: [
     BrowserModule,
