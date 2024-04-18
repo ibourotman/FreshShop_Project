@@ -12,7 +12,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { ProductShopComponent } from './product-detail/product-shop/product-shop.component';
 import { ProductDecriptionComponent } from './product-detail/product-shop/product-decription/product-decription.component';
 import { ProductReviewComponent } from './product-detail/product-shop/product-review/product-review.component';
-import { FeaturedComponent } from './product-detail/featured/featured.component';
+import { FeaturedComponent } from './featured/featured.component';
 import { RelatedProductComponent } from './product-detail/related-product/related-product.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';

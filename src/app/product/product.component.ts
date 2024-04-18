@@ -28,7 +28,7 @@ ngOnInit(): void {
     }
   );
 }
-  
+
   getAllProductByTag(category: string) {
     if (category === "All Products") {
       this.prodByatg = this.product;
