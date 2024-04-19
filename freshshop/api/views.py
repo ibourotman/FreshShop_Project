@@ -25,6 +25,13 @@ class OrderListCreateAPIView(generics.ListCreateAPIView):
 class OrderRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
+    lookup_url_kwarg = 'pk'
+
+    def get_object(self):
+        queryset = self.get_queryset()
+        obj = get_object_or_404(queryset, user_id=self.kwargs[self.lookup_url_kwarg])
+        return obj
+
 
 class OrderItemCreateAPIView(generics.CreateAPIView):
     queryset = OrderItem.objects.all()

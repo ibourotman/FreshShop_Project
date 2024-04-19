@@ -12,7 +12,7 @@ export class AppComponent implements OnInit{
     
    }
    ngOnInit(): void {
-    this.datasrv.getOrdersForUser(4).subscribe(
+    this.datasrv.getOrdersForUser(1).subscribe(
       (data) => {
         const totalOrder = data.items.length
         this.datasrv.updateTotalOrder(totalOrder);

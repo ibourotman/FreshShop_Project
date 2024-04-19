@@ -25,7 +25,7 @@ export class CartComponent implements OnInit{
   }
 
   GetOrders() {
-    this.datasrv.getOrdersForUser(4).subscribe(
+    this.datasrv.getOrdersForUser(1).subscribe(
       (data) => {
         this.order = data;
         console.log(this.order)

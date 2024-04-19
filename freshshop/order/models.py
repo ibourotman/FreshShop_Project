@@ -4,8 +4,6 @@ from products.models import Product
 
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    # Add more fields as needed
-
     def __str__(self):
         return f"Order #{self.pk} - {self.user.username}"
 
