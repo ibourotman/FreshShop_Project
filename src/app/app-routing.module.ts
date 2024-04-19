@@ -7,6 +7,7 @@ import { HeaderComponent } from './home/header/header.component';
 import { CartComponent } from './cart/cart.component';
 import { AppComponent } from './app.component';
 import { ShopComponent } from './shop/shop.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const routes: Routes = [
   { 
@@ -21,7 +22,9 @@ const routes: Routes = [
   {path:'product/:id', component:ProductDetailComponent,
   },
   {path:'cart', component:CartComponent},
-  {path:'Shop', component:ShopComponent}
+  {path:'Shop', component:ShopComponent},
+  { path: 'checkout/:orderId', component: CheckoutComponent }
+
 
 ];
 

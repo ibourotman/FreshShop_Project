@@ -21,6 +21,7 @@ import { CartComponent } from './cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ShopComponent } from './shop/shop.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { ShopComponent } from './shop/shop.component';
     FooterComponent,
     CartComponent,
     ShopComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,

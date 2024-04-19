@@ -2,9 +2,7 @@ import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { DataServiceService } from '../shared/data-service.service';
 import { Order } from '../shared/order.model';
 import { Product } from '../shared/product.model';
-import { OrderItem } from '../shared/order-item.model';
-import { User } from '../shared/user.model';
-import { CartServiceService } from '../shared/cart-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -16,7 +14,7 @@ export class CartComponent implements OnInit{
   Product:Product[] = []
   order!:Order;
   totalCart:number = 0;
-  constructor(private datasrv:DataServiceService){
+  constructor(private datasrv:DataServiceService,private router: Router){
     this.GetOrders();
 
   }
@@ -97,4 +95,7 @@ getTotal(){
   this.totalCart = parseFloat(this.totalCart.toFixed(2))
 }
 
+goToCheckout(orderId :number) {
+  this.router.navigate(['/checkout', orderId]); // Navigate to the checkout page with order ID
+}
 }
