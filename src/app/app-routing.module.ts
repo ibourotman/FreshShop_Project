@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { HeaderComponent } from './home/header/header.component';
 import { CartComponent } from './cart/cart.component';
 import { AppComponent } from './app.component';
 import { ShopComponent } from './shop/shop.component';
@@ -12,11 +11,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 const routes: Routes = [
   { 
     path: '', 
-    component: AppComponent, 
-    children: [
-      { path: '', component: HomeComponent },
-      { path: '', component: ProductComponent, outlet: 'secondary' }
-    ] 
+    component: HomeComponent 
   },
   
   {path:'product/:id', component:ProductDetailComponent,

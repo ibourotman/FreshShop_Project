@@ -9,7 +9,10 @@ import { DataServiceService } from '../shared/data-service.service';
 export class HomeComponent {
   products: any[]=[];
 
-  constructor(private datasrv: DataServiceService) { }
+  constructor(private datasrv: DataServiceService) { 
+    window.scrollTo(0, 0)
+
+  }
 
 
 }

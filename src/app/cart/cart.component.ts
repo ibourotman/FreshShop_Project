@@ -14,8 +14,10 @@ export class CartComponent implements OnInit{
   Product:Product[] = []
   order!:Order;
   totalCart:number = 0;
+  userid!:number;
   constructor(private datasrv:DataServiceService,private router: Router){
     this.GetOrders();
+    
 
   }
   ngOnInit(): void {
@@ -28,6 +30,7 @@ export class CartComponent implements OnInit{
     this.datasrv.getOrdersForUser(1).subscribe(
       (data) => {
         this.order = data;
+        this.userid = Number(this.order.user);
         console.log(this.order)
         this.getTotal();
       },
@@ -96,6 +99,7 @@ getTotal(){
 }
 
 goToCheckout(orderId :number) {
+  console.log("user :",this.order.user)
   this.router.navigate(['/checkout', orderId]); // Navigate to the checkout page with order ID
 }
 }
