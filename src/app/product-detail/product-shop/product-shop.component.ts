@@ -41,7 +41,7 @@ addToCart(product: Product, quantity: number) {
     (orderItem) => {     
       // On successful addition, add the item to the cart service
       this.cartSrv.addItem(orderItem);
-      this.dataService.getOrdersForUser(4).subscribe(
+      this.dataService.getOrdersForUser(1).subscribe(
         (data) => {
           const totalOrder = data.items.length
           this.dataService.updateTotalOrder(totalOrder);

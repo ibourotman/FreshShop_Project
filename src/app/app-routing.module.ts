@@ -11,7 +11,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 const routes: Routes = [
   { 
     path: '', 
-    component: HomeComponent 
+    component:  HomeComponent
   },
   
   {path:'product/:id', component:ProductDetailComponent,

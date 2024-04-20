@@ -17,6 +17,7 @@ export class CartComponent implements OnInit{
   userid!:number;
   constructor(private datasrv:DataServiceService,private router: Router){
     this.GetOrders();
+
     
 
   }
@@ -50,7 +51,7 @@ export class CartComponent implements OnInit{
       () => {
         console.log('Order item deleted successfully');
         this.GetOrders();
-        this.datasrv.getOrdersForUser(4).subscribe(
+        this.datasrv.getOrdersForUser(1).subscribe(
           (data) => {
             const totalOrder = data.items.length
             this.datasrv.updateTotalOrder(totalOrder);
