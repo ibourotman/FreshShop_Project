@@ -2,7 +2,7 @@ from rest_framework import generics, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
-from .serializers import ProductSerializer, OrderSerializer, OrderItemSerializer
+from .serializers import ProductSerializer, OrderSerializer, OrderItemSerializer,UserSerializer
 from products.models import Product
 from order.models import Order, OrderItem
 
@@ -81,3 +81,9 @@ class OrderItemAddAPIView(APIView):
         order_item = OrderItem.objects.create(order=order, product=product, quantity=quantity)
         serializer = OrderItemSerializer(order_item)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+from user.models import User
+
+class UsersList(generics.ListAPIView):
+    queryset = User.objects.all() # Order by creation time
+    serializer_class = UserSerializer

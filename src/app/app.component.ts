@@ -12,7 +12,14 @@ export class AppComponent implements OnInit{
   title = 'PROJECT';
   isLoginPage:boolean = false;
   constructor(private datasrv: DataServiceService , private AuthService:AuthService,private router: Router) {
-    
+    this.datasrv.getUsers().subscribe(
+      (data) => {
+        console.log('user:',data)
+      },
+      (error) => {
+        console.error('Error fetching products:', error);
+      }
+    );
     
    }
    ngOnInit(): void {

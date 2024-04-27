@@ -3,8 +3,7 @@
 from rest_framework import serializers
 from products.models import Product  # Import the Product model from the products app
 from order.models import Order, OrderItem
-from user.serializers import UserSerializer
-
+from user.models import User
 # Meta Class:
 
 # Inside the ProductSerializer class, there's a nested Meta class.
@@ -30,3 +29,8 @@ class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
         fields = ['id', 'user', 'items'] 
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'email']

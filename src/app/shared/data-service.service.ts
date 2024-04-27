@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Product } from './product.model';
 import { Order } from './order.model';
 import { OrderItem } from './order-item.model';
+import { User } from './user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,8 @@ export class DataServiceService {
 
   private apiUrl = 'http://localhost:8000/api/products/';
   private apiUrlo = 'http://localhost:8000/api/orders/';
+  private apiUrluser = 'http://localhost:8000/api/users/';
+
   private totalOrderSubject = new BehaviorSubject<number>(0);
   totalOrder$ = this.totalOrderSubject.asObservable();
 
@@ -23,6 +26,9 @@ export class DataServiceService {
   }
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.apiUrl);
+  }
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this.apiUrluser);
   }
   getOrdersForUser(userId: number): Observable<Order> {
     const url = `${this.apiUrlo}${userId}`;
